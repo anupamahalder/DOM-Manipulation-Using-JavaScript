@@ -68,3 +68,30 @@ const removeComment = (e)=>{
     }
 }
 
+// ----------------------------API-------------------------
+fetch("https://jsonplaceholder.typicode.com/users")
+.then((res)=>res.json())
+.then(data =>{
+    console.log(data);
+    displayData(data);
+})
+.catch(err=>{
+    console.log(err);
+})
+
+const displayData = (userData) =>{
+    const container = document.getElementById("user-data-container");
+    // foreach doesnot return 
+    userData.forEach(user => {
+        // create an element 
+        const div = document.createElement("div");
+        div.classList.add("user-div");
+        div.innerHTML = `
+        <h4><b>Name:</b> ${user.name}</h4>
+        <p><b>Username:</b> ${user.username}</p>
+        <p><b>Email:</b> ${user.email}</p>
+        <button>Details</button>
+        `
+        container.appendChild(div);
+    })
+}
