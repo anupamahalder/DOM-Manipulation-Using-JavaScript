@@ -47,10 +47,24 @@ const handleSearch = (event) =>{
     const container = document.getElementById("comment-container");
     // create a paragraph tag 
     const para = document.createElement("p");
+    // add a class name to this tag 
+    para.classList.add("child-para");
     para.innerText = inputValue;
     // then put the p tag inside container 
     container.appendChild(para);
     // clear the input field 
     document.getElementById("search-box").value = '';
+}
+
+const removeComment = (e)=>{
+    // get all the comments as an array 
+    const allComments = document.getElementsByClassName("child-para");
+    // remove the clicked comment 
+    for(const element of allComments){
+        element.addEventListener("click", (e)=>{
+            // remove this child 
+            e.target.parentNode.removeChild(element);
+        })
+    }
 }
 
