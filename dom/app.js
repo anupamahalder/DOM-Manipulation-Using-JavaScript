@@ -41,6 +41,16 @@ for(let i=0;i<allBox.length;i++){
 // )
 // Way 2 : Call function by adding onClick property at the element and put the function name there
 const handleSearch = (event) =>{
-    console.log("Hello btn clicked!");
+    const inputValue = document.getElementById("search-box").value;
+    if(!inputValue) return;
+    console.log(inputValue);
+    const container = document.getElementById("comment-container");
+    // create a paragraph tag 
+    const para = document.createElement("p");
+    para.innerText = inputValue;
+    // then put the p tag inside container 
+    container.appendChild(para);
+    // clear the input field 
+    document.getElementById("search-box").value = '';
 }
 
