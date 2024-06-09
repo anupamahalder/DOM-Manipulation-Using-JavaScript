@@ -30,3 +30,17 @@ for(let i=0;i<allBox.length;i++){
     }
     else element.style.backgroundColor = "lightgreen";
 }
+
+// addEventListener takes two parameter first one is the name of event and second one is the function
+// default parameter of a function is event parameter
+// Way 1
+// document.getElementById("handle-add-btn").addEventListener("click", 
+//     (event)=>{
+//         console.log("Hello btn!");
+//     }
+// )
+// Way 2 : Call function by adding onClick property at the element and put the function name there
+const handleSearch = (event) =>{
+    console.log("Hello btn clicked!");
+}
+
